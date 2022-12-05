@@ -2,19 +2,25 @@ package datareaders
 
 import (
 	"bufio"
+	"fmt"
 	"log"
 	"os"
 	"strconv"
 	"strings"
 )
 
-func GetDataFromFile(fileName string) []string {
+func GetDataFromFile(fileName string) ([]string, error) {
 	file, err := os.Open(fileName)
-
 	if err != nil {
-		log.Fatalf("unable to read file: %v", err)
+		return nil, fmt.Errorf("read file: %w", err)
 	}
-	defer file.Close()
+	defer func() {
+		err = file.Close()
+		if err != nil {
+			err = fmt.Errorf("could not close file gently: %w", err)
+			log.Fatal(err)
+		}
+	}()
 
 	scanner := bufio.NewScanner(file)
 	result := make([]string, 0)
@@ -25,32 +31,37 @@ func GetDataFromFile(fileName string) []string {
 	}
 
 	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
+		return nil, fmt.Errorf("run scanner: %w", err)
 	}
 
-	return result
+	return result, nil
 }
 
-func GetIntDataFromFile(fileName string) []int {
-	stringData := GetDataFromFile(fileName)
+func GetIntDataFromFile(fileName string) ([]int, error) {
+	stringData, err := GetDataFromFile(fileName)
+	if err != nil {
+		return nil, fmt.Errorf("get data from file: %w", err)
+	}
 
 	result := make([]int, 0)
 	for _, val := range stringData {
 		value, err := strconv.Atoi(val)
 		if err != nil {
-			// handle error
-			log.Fatal(err)
-			os.Exit(2)
+			return nil, fmt.Errorf("cast value to int: %w", err)
 		}
 
 		result = append(result, value)
 	}
 
-	return result
+	return result, nil
 }
 
-func GetMatrixDataFromFile(fileName string) (result [][]int, rowLength int, colLength int) {
-	stringData := GetDataFromFile(fileName)
+func GetMatrixDataFromFile(fileName string) (result [][]int, rowLength int, colLength int, err error) {
+	stringData, err := GetDataFromFile(fileName)
+	if err != nil {
+		return nil, 0, 0, fmt.Errorf("get data from file: %w", err)
+	}
+
 	rowLength = len(stringData)
 	colLength = len(stringData[0])
 
@@ -71,8 +82,11 @@ func GetMatrixDataFromFile(fileName string) (result [][]int, rowLength int, colL
 	return
 }
 
-func GetIntDataWithSeparatorFromFile(filename string, s string) []int {
-	stringData := GetDataFromFile(filename)
+func GetIntDataWithSeparatorFromFile(filename string, s string) ([]int, error) {
+	stringData, err := GetDataFromFile(filename)
+	if err != nil {
+		return nil, fmt.Errorf("get data from file: %w", err)
+	}
 
 	result := make([]int, 0)
 	for _, val := range strings.Split(stringData[0], s) {
@@ -86,5 +100,5 @@ func GetIntDataWithSeparatorFromFile(filename string, s string) []int {
 		result = append(result, value)
 	}
 
-	return result
+	return result, nil
 }

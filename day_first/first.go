@@ -73,7 +73,10 @@ func updateResults(currentResult int, results *[3]int) {
 }
 
 func getBackpacksFromFile(filepath string) ([][]int, error) {
-	backpackInfo := datareaders.GetDataFromFile(filepath)
+	backpackInfo, err := datareaders.GetDataFromFile(filepath)
+	if err != nil {
+		return nil, fmt.Errorf("get data from file: %w", err)
+	}
 	var backpacks [][]int
 	var backpack []int
 	for _, str := range backpackInfo {

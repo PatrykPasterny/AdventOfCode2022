@@ -2,12 +2,14 @@ package main
 
 import (
 	"AdventOfCode2022/day_first"
+	"AdventOfCode2022/day_second"
 	"fmt"
 	"log"
 )
 
 const (
-	firstDayFilepath = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_first/data/data.txt"
+	firstDayFilepath  = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_first/data/data.txt"
+	secondDayFilepath = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_second/data/data.txt"
 )
 
 func main() {
@@ -32,14 +34,20 @@ func main() {
 	fmt.Println("###################### DAY SECOND ########################")
 	fmt.Println("##########################################################")
 	fmt.Println("####################### TASK ONE  ########################")
-
+	daySecondTaskFirstResult, err := day_second.CountFirstStrategyGuideResult(secondDayFilepath)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
 	fmt.Println()
-
+	fmt.Println(daySecondTaskFirstResult)
 	fmt.Println()
 	fmt.Println("####################### TASK TWO  ########################")
-
+	daySecondTaskSecondResult, err := day_second.CountSecondStrategyGuideResult(secondDayFilepath)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
 	fmt.Println()
-
+	fmt.Println(daySecondTaskSecondResult)
 	fmt.Println()
 	fmt.Println("####################### DAY THIRD ########################")
 	fmt.Println("##########################################################")
