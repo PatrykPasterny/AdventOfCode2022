@@ -9,7 +9,7 @@ import (
 func GetBackpackWithMostCalories(filepath string) (int, error) {
 	backpacks, err := getBackpacksFromFile(filepath)
 	if err != nil {
-		return 0, fmt.Errorf("unable to get backpacks from file %w", err)
+		return 0, fmt.Errorf("get backpacks from file %w", err)
 	}
 
 	return sumMostCaloriesBackpack(backpacks), nil
@@ -18,7 +18,7 @@ func GetBackpackWithMostCalories(filepath string) (int, error) {
 func GetThreeBackpacksWithMostCalories(filepath string) (int, error) {
 	backpacks, err := getBackpacksFromFile(filepath)
 	if err != nil {
-		return 0, fmt.Errorf("unable to get backpacks from file %w", err)
+		return 0, fmt.Errorf("get backpacks from file %w", err)
 	}
 
 	return sumThreeMostCaloriesBackpacks(backpacks), nil
