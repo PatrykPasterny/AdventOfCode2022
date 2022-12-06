@@ -2,6 +2,7 @@ package main
 
 import (
 	"AdventOfCode2022/day_first"
+	"AdventOfCode2022/day_fourth"
 	"AdventOfCode2022/day_second"
 	"AdventOfCode2022/day_third"
 	"fmt"
@@ -12,6 +13,7 @@ const (
 	firstDayFilepath  = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_first/data/data.txt"
 	secondDayFilepath = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_second/data/data.txt"
 	thirdDayFilepath  = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_third/data/data.txt"
+	fourthDayFilepath = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_fourth/data/data.txt"
 )
 
 func main() {
@@ -73,6 +75,20 @@ func main() {
 	fmt.Println("##########################################################")
 	fmt.Println("####################### TASK ONE  ########################")
 	fmt.Println()
+	dayFourthTaskFirstResult, err := day_fourth.SumFullyOverlappingAssignments(fourthDayFilepath)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+	fmt.Println()
+	fmt.Println(dayFourthTaskFirstResult)
 	fmt.Println()
 	fmt.Println("####################### TASK TWO  ########################")
+	fmt.Println()
+	dayFourthTaskSecondResult, err := day_fourth.SumEveryOverlappingAssignments(fourthDayFilepath)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+	fmt.Println()
+	fmt.Println(dayFourthTaskSecondResult)
+	fmt.Println()
 }
