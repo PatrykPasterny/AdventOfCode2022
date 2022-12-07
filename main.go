@@ -1,6 +1,7 @@
 package main
 
 import (
+	"AdventOfCode2022/day_fifth"
 	"AdventOfCode2022/day_first"
 	"AdventOfCode2022/day_fourth"
 	"AdventOfCode2022/day_second"
@@ -14,6 +15,7 @@ const (
 	secondDayFilepath = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_second/data/data.txt"
 	thirdDayFilepath  = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_third/data/data.txt"
 	fourthDayFilepath = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_fourth/data/data.txt"
+	fifthDayFilepath  = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_fifth/data/data.txt"
 )
 
 func main() {
@@ -90,5 +92,25 @@ func main() {
 	}
 	fmt.Println()
 	fmt.Println(dayFourthTaskSecondResult)
+	fmt.Println()
+	fmt.Println("####################### DAY FIFTH #######################")
+	fmt.Println("##########################################################")
+	fmt.Println("####################### TASK ONE  ########################")
+	fmt.Println()
+	dayFifthTaskFirstResult, err := day_fifth.GetTopCratesNamesForCrateMover9000(fifthDayFilepath)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+	fmt.Println()
+	fmt.Println(dayFifthTaskFirstResult)
+	fmt.Println()
+	fmt.Println("####################### TASK TWO  ########################")
+	fmt.Println()
+	dayFifthTaskSecondResult, err := day_fifth.GetTopCratesNamesForCrateMover9001(fifthDayFilepath)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+	fmt.Println()
+	fmt.Println(dayFifthTaskSecondResult)
 	fmt.Println()
 }
