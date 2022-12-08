@@ -5,6 +5,7 @@ import (
 	"AdventOfCode2022/day_first"
 	"AdventOfCode2022/day_fourth"
 	"AdventOfCode2022/day_second"
+	"AdventOfCode2022/day_sixth"
 	"AdventOfCode2022/day_third"
 	"fmt"
 	"log"
@@ -16,6 +17,7 @@ const (
 	thirdDayFilepath  = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_third/data/data.txt"
 	fourthDayFilepath = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_fourth/data/data.txt"
 	fifthDayFilepath  = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_fifth/data/data.txt"
+	sixthDayFilepath  = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_sixth/data/data.txt"
 )
 
 func main() {
@@ -112,5 +114,25 @@ func main() {
 	}
 	fmt.Println()
 	fmt.Println(dayFifthTaskSecondResult)
+	fmt.Println()
+	fmt.Println("####################### DAY SIXTH #######################")
+	fmt.Println("##########################################################")
+	fmt.Println("####################### TASK ONE  ########################")
+	fmt.Println()
+	daySixthTaskFirstResult, err := day_sixth.FindFirstStartOfPacketMarker(sixthDayFilepath)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+	fmt.Println()
+	fmt.Println(daySixthTaskFirstResult)
+	fmt.Println()
+	fmt.Println("####################### TASK TWO  ########################")
+	fmt.Println()
+	daySixthTaskSecondResult, err := day_sixth.FindFirstStartOfMessageMarker(sixthDayFilepath)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+	fmt.Println()
+	fmt.Println(daySixthTaskSecondResult)
 	fmt.Println()
 }
