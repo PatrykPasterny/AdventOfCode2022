@@ -5,6 +5,7 @@ import (
 	"AdventOfCode2022/day_first"
 	"AdventOfCode2022/day_fourth"
 	"AdventOfCode2022/day_second"
+	"AdventOfCode2022/day_seventh"
 	"AdventOfCode2022/day_sixth"
 	"AdventOfCode2022/day_third"
 	"fmt"
@@ -12,12 +13,18 @@ import (
 )
 
 const (
-	firstDayFilepath  = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_first/data/data.txt"
-	secondDayFilepath = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_second/data/data.txt"
-	thirdDayFilepath  = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_third/data/data.txt"
-	fourthDayFilepath = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_fourth/data/data.txt"
-	fifthDayFilepath  = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_fifth/data/data.txt"
-	sixthDayFilepath  = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_sixth/data/data.txt"
+	firstDayFilepath   = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_first/data/data.txt"
+	secondDayFilepath  = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_second/data/data.txt"
+	thirdDayFilepath   = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_third/data/data.txt"
+	fourthDayFilepath  = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_fourth/data/data.txt"
+	fifthDayFilepath   = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_fifth/data/data.txt"
+	sixthDayFilepath   = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_sixth/data/data.txt"
+	seventhDayFilepath = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_seventh/data/data.txt"
+)
+
+const (
+	deviceMemory = 70000000
+	updateWeight = 30000000
 )
 
 func main() {
@@ -127,12 +134,31 @@ func main() {
 	fmt.Println(daySixthTaskFirstResult)
 	fmt.Println()
 	fmt.Println("####################### TASK TWO  ########################")
-	fmt.Println()
 	daySixthTaskSecondResult, err := day_sixth.FindFirstStartOfMessageMarker(sixthDayFilepath)
 	if err != nil {
 		log.Fatalf(err.Error())
 	}
 	fmt.Println()
 	fmt.Println(daySixthTaskSecondResult)
+	fmt.Println()
+	fmt.Println("###################### DAY SEVENTH #######################")
+	fmt.Println("##########################################################")
+	fmt.Println("####################### TASK ONE  ########################")
+	daySeventhTaskFirstResult, err := day_seventh.SumAllDirectoriesAboveGivenSize(seventhDayFilepath, 100000)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+	fmt.Println()
+	fmt.Println(daySeventhTaskFirstResult)
+	fmt.Println()
+	fmt.Println("####################### TASK TWO  ########################")
+	fmt.Println()
+	daySeventhTaskSecondResult, err := day_seventh.
+		FindSmallestDirSizeNeededToDeleteForSystemUpdate(seventhDayFilepath, deviceMemory, updateWeight)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+	fmt.Println()
+	fmt.Println(daySeventhTaskSecondResult)
 	fmt.Println()
 }
