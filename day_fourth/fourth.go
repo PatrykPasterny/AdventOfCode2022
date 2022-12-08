@@ -1,12 +1,13 @@
 package day_fourth
 
 import (
-	datareaders "AdventOfCode2022/data_readers"
 	"errors"
 	"fmt"
 	"sort"
 	"strconv"
 	"strings"
+
+	datareaders "AdventOfCode2022/data_readers"
 )
 
 var (

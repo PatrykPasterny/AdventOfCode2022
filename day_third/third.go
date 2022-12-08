@@ -1,9 +1,10 @@
 package day_third
 
 import (
-	datareaders "AdventOfCode2022/data_readers"
 	"errors"
 	"fmt"
+
+	datareaders "AdventOfCode2022/data_readers"
 )
 
 var (

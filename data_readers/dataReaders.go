@@ -71,8 +71,7 @@ func GetMatrixDataFromFile(fileName string) (result [][]int, rowLength int, colL
 		for j := range result[i] {
 			singleVal, err := strconv.Atoi(string(stringData[i][j]))
 			if err != nil {
-				log.Fatal(err)
-				os.Exit(2)
+				return nil, 0, 0, fmt.Errorf("parse matrix element to int: %w", err)
 			}
 
 			result[i][j] = singleVal

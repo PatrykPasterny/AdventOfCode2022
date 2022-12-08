@@ -1,14 +1,15 @@
 package day_seventh
 
 import (
-	"AdventOfCode2022/common"
-	datareaders "AdventOfCode2022/data_readers"
-	"AdventOfCode2022/day_seventh/model"
 	"errors"
 	"fmt"
 	"math"
 	"regexp"
 	"strconv"
+
+	"AdventOfCode2022/common"
+	datareaders "AdventOfCode2022/data_readers"
+	"AdventOfCode2022/day_seventh/model"
 )
 
 var memoryTooSmallForUpdate = errors.New("device memory is too small for update")

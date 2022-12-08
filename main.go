@@ -1,6 +1,7 @@
 package main
 
 import (
+	"AdventOfCode2022/day_eighth"
 	"AdventOfCode2022/day_fifth"
 	"AdventOfCode2022/day_first"
 	"AdventOfCode2022/day_fourth"
@@ -20,6 +21,7 @@ const (
 	fifthDayFilepath   = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_fifth/data/data.txt"
 	sixthDayFilepath   = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_sixth/data/data.txt"
 	seventhDayFilepath = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_seventh/data/data.txt"
+	eighthDayFilepath  = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_eighth/data/data.txt"
 )
 
 const (
@@ -160,5 +162,24 @@ func main() {
 	}
 	fmt.Println()
 	fmt.Println(daySeventhTaskSecondResult)
+	fmt.Println()
+	fmt.Println("####################### DAY EIGHT #######################")
+	fmt.Println("##########################################################")
+	fmt.Println("####################### TASK ONE  ########################")
+	dayEightTaskFirstResult, err := day_eighth.CountVisibleTrees(eighthDayFilepath)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+	fmt.Println()
+	fmt.Println(dayEightTaskFirstResult)
+	fmt.Println()
+	fmt.Println("####################### TASK TWO  ########################")
+	fmt.Println()
+	dayEighthTaskSecondResult, err := day_eighth.FindHighestScenicScore(eighthDayFilepath)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+	fmt.Println()
+	fmt.Println(dayEighthTaskSecondResult)
 	fmt.Println()
 }

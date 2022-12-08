@@ -1,9 +1,10 @@
 package day_second
 
 import (
-	datareaders "AdventOfCode2022/data_readers"
 	"fmt"
 	"strings"
+
+	datareaders "AdventOfCode2022/data_readers"
 )
 
 const (

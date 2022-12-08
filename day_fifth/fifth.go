@@ -1,13 +1,14 @@
 package day_fifth
 
 import (
-	"AdventOfCode2022/common"
-	datareaders "AdventOfCode2022/data_readers"
 	"errors"
 	"fmt"
 	"strconv"
 	"strings"
 	"unicode"
+
+	"AdventOfCode2022/common"
+	datareaders "AdventOfCode2022/data_readers"
 )
 
 var noCratePositionInfo = errors.New("unable to get crate position info")

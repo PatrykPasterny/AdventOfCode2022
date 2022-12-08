@@ -1,9 +1,10 @@
 package day_first
 
 import (
-	datareaders "AdventOfCode2022/data_readers"
 	"fmt"
 	"strconv"
+
+	datareaders "AdventOfCode2022/data_readers"
 )
 
 func GetBackpackWithMostCalories(filepath string) (int, error) {
