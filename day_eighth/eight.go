@@ -29,14 +29,14 @@ func FindHighestScenicScore(filepath string) (int, error) {
 }
 
 func getVisibleGrid(treeHeightsGrid [][]int, rowLen, colLen int) [][]int {
-	visible := createVisibleTreeGrid(rowLen, colLen)
+	visible := createVisibleGrid(rowLen, colLen)
 
-	fillVisibleAndTreeGrids(treeHeightsGrid, visible, rowLen, colLen)
+	fillVisibleGrid(treeHeightsGrid, visible, rowLen, colLen)
 
 	return visible
 }
 
-func createVisibleTreeGrid(rowLen, colLen int) [][]int {
+func createVisibleGrid(rowLen, colLen int) [][]int {
 	result := make([][]int, rowLen)
 	for idx := range result {
 		result[idx] = make([]int, colLen)
@@ -50,7 +50,7 @@ func createVisibleTreeGrid(rowLen, colLen int) [][]int {
 	return result
 }
 
-func fillVisibleAndTreeGrids(treeHeightsGrid [][]int, visible [][]int, rowLen, colLen int) {
+func fillVisibleGrid(treeHeightsGrid [][]int, visible [][]int, rowLen, colLen int) {
 	for idx := 1; idx < rowLen-1; idx++ {
 		leftHighest := treeHeightsGrid[idx][0]
 		for jdx := 1; jdx < colLen-1; jdx++ {
