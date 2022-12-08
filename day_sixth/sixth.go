@@ -62,12 +62,12 @@ func findMarkerPosition(inputSignal string, markerLength int) (int, error) {
 		return 0, errSignalTooShort
 	}
 
-	signAmountMap := make(map[rune]int)
+	signAmountMap := make(map[uint8]int)
 	for idx := 0; idx < markerLength; idx++ {
-		if _, found := signAmountMap[rune(inputSignal[idx])]; !found {
-			signAmountMap[rune(inputSignal[idx])] = 1
+		if _, found := signAmountMap[inputSignal[idx]]; !found {
+			signAmountMap[inputSignal[idx]] = 1
 		} else {
-			signAmountMap[rune(inputSignal[idx])]++
+			signAmountMap[inputSignal[idx]]++
 		}
 	}
 
@@ -76,15 +76,15 @@ func findMarkerPosition(inputSignal string, markerLength int) (int, error) {
 			return idx, nil
 		}
 
-		signAmountMap[rune(inputSignal[idx-markerLength])]--
-		if value := signAmountMap[rune(inputSignal[idx-markerLength])]; value == 0 {
-			delete(signAmountMap, rune(inputSignal[idx-markerLength]))
+		signAmountMap[inputSignal[idx-markerLength]]--
+		if value := signAmountMap[inputSignal[idx-markerLength]]; value == 0 {
+			delete(signAmountMap, inputSignal[idx-markerLength])
 		}
 
-		if _, found := signAmountMap[rune(inputSignal[idx])]; !found {
-			signAmountMap[rune(inputSignal[idx])] = 1
+		if _, found := signAmountMap[inputSignal[idx]]; !found {
+			signAmountMap[inputSignal[idx]] = 1
 		} else {
-			signAmountMap[rune(inputSignal[idx])]++
+			signAmountMap[inputSignal[idx]]++
 		}
 	}
 
