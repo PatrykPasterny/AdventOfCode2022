@@ -5,6 +5,7 @@ import (
 	"AdventOfCode2022/day_fifth"
 	"AdventOfCode2022/day_first"
 	"AdventOfCode2022/day_fourth"
+	"AdventOfCode2022/day_ninth"
 	"AdventOfCode2022/day_second"
 	"AdventOfCode2022/day_seventh"
 	"AdventOfCode2022/day_sixth"
@@ -22,6 +23,7 @@ const (
 	sixthDayFilepath   = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_sixth/data/data.txt"
 	seventhDayFilepath = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_seventh/data/data.txt"
 	eighthDayFilepath  = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_eighth/data/data.txt"
+	ninthDayFilepath   = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_ninth/data/data.txt"
 )
 
 const (
@@ -181,5 +183,24 @@ func main() {
 	}
 	fmt.Println()
 	fmt.Println(dayEighthTaskSecondResult)
+	fmt.Println()
+	fmt.Println("####################### DAY NINTH #######################")
+	fmt.Println("##########################################################")
+	fmt.Println("####################### TASK ONE  ########################")
+	dayNineTaskFirstResult, err := day_ninth.CountAllTailPositions(ninthDayFilepath, 2)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+	fmt.Println()
+	fmt.Println(dayNineTaskFirstResult)
+	fmt.Println()
+	fmt.Println("####################### TASK TWO  ########################")
+	fmt.Println()
+	dayNineTaskSecondResult, err := day_ninth.CountAllTailPositions(ninthDayFilepath, 10)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+	fmt.Println()
+	fmt.Println(dayNineTaskSecondResult)
 	fmt.Println()
 }
