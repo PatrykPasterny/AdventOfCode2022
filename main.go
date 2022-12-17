@@ -9,7 +9,9 @@ import (
 	"AdventOfCode2022/day_second"
 	"AdventOfCode2022/day_seventh"
 	"AdventOfCode2022/day_sixth"
+	"AdventOfCode2022/day_tenth"
 	"AdventOfCode2022/day_third"
+
 	"fmt"
 	"log"
 )
@@ -24,6 +26,7 @@ const (
 	seventhDayFilepath = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_seventh/data/data.txt"
 	eighthDayFilepath  = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_eighth/data/data.txt"
 	ninthDayFilepath   = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_ninth/data/data.txt"
+	tenthDayFilepath   = "/Users/patrykpasterny/Desktop/MyStuff/AdventOfCode2022/day_tenth/data/data.txt"
 )
 
 const (
@@ -202,5 +205,31 @@ func main() {
 	}
 	fmt.Println()
 	fmt.Println(dayNineTaskSecondResult)
+	fmt.Println()
+	fmt.Println("####################### DAY TENTH #######################")
+	fmt.Println("##########################################################")
+	fmt.Println("####################### TASK ONE  ########################")
+	cycles := []int{20, 60, 100, 140, 180, 220}
+	dayTenTaskFirstResult, err := day_tenth.GetSumOfStrengthsOfGivenCycles(tenthDayFilepath, cycles)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+	fmt.Println()
+	fmt.Println(dayTenTaskFirstResult)
+	fmt.Println()
+	fmt.Println("####################### TASK TWO  ########################")
+	fmt.Println()
+	dayTenTaskSecondResult, err := day_tenth.GetScreenOutput(tenthDayFilepath)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+	fmt.Println()
+	for i := range dayTenTaskSecondResult {
+		for j := range dayTenTaskSecondResult[i] {
+			fmt.Print(dayTenTaskSecondResult[i][j])
+		}
+
+		fmt.Println()
+	}
 	fmt.Println()
 }
